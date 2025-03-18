@@ -9,7 +9,7 @@ This project performs Exploratory Data Analysis (EDA) on New York Airbnb data to
 The dataset contains 20,765 records and 22 columns.
 
 The columns are -
-• id: Unique identifier for each listing
+**• id:** Unique identifier for each listing
 • name: Title of the Airbnb listing
 • host_name: Name of the host
 • neighborhood_group: Group (borough) where the listing is located
