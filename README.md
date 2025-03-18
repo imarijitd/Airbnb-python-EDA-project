@@ -9,6 +9,7 @@ This project performs Exploratory Data Analysis (EDA) on New York Airbnb data to
 The dataset contains 20,765 records and 22 columns.
 
 The columns are -
+
 **• id:** Unique identifier for each listing
 
 **• name:** Title of the Airbnb listing
@@ -27,34 +28,88 @@ The columns are -
 
 **• availability_365:** Number of available days in the year
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Objective
 
+The goal of this project is to:
+
+1. Analyze room types, prices, and availability across different neighborhoods.
+   
+2. Understand host behavior and listing patterns.
+   
+3. Detect potential outliers in prices.
+   
+4. Provide recommendations for guests and hosts based on insights.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Project Steps - 
 
-### 1. Setting Up the Environment
-Tools Used: Snowflake, AWS, SQL, PowerBI, MS Excel
-Goal: Create a structured workspace within Snowflake and organize project folders for smooth development and data handling.
+### 1. Data Cleaning
+
+• Handle missing data: price, neighborhood, and beds columns had null values.
+
+• Fix data types: Converted last_review to a datetime object.
+
+• Remove outliers: Listings with prices > $1,000 were capped to avoid skewed visualizations.
 
 
-### 2. Creating AWS S3 bucket
-Goal : We need to create AWS S3 bucket and load data into it. Follow the below steps -
+## 2. EDA (Exploratory Data Analysis)
 
-a.) Go to AWS----> Options----> All Services----> S3, and click on "Create Bucket" option, and load data into the bucket after bucket creation.
+• Room type distribution.
 
-b.) Create Role in AWS by going to option IAM----> Roles.
+• Neighborhood group insights.
 
-c.) Go to Snowflake and create integration object for connecting Snowflake with AWS.
+• Availability trends.
 
-d.) Go to AWS and replace 'USER_ARN' and 'EXTERNAL_ID' fields with the values received in Snowflake after integration object creation.
-    
-Follow : AWS----> IAM----> Roles----> Edit Roles----> Replace the values----> Save
+• Price distribution.
 
+• Host listings.
 
-### 3. Integrating Snowflake with AWS S3
-Goal : We need to integrate Snowflake with AWS S3 by creating an integration object. Follow the code written in the text file fo more understanding.
-The text file with name "AWS snowflake integration.txt" has been uploaded here for reference.
+• Review behavior.
 
 
-### 4. Loading data from AWS S3 to Snowflake
-Goal : We need to create database, schema, tables and staging object in Snowflake for loading the data from AWS S3 bucket to Snowflake.
-Follow the text file with name "loading data from aws to snowflake.txt" for more understanding.
+## 3. Data Visualization
 
+• Histograms and Boxplots: To detect outliers in price.
+
+• Bar Charts: Displaying room types and neighborhood group distributions.
+
+• Scatter Plot: To visualize correlations.
+
+• Pairplot: To see correlations among price, availability, and number of reviews.
+
+• Heatmap: Showing correlations among numerical features.
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Key Findings and Insights - 
+
+1. Price Trends:
+   
+       • Manhattan has the most expensive listings, followed by Brooklyn.
+   
+       • Entire homes/apartments cost significantly more than private or shared rooms.
+   
+2. Room Type Distribution:
+   
+       • Entire homes/apartments are the most common, but private rooms offer budget-friendly options.
+   
+3. Outliers in Price:
+
+       • Few listings priced at $10,000+ were detected, indicating the need to filter such extreme values.
+   
+5. Availability Patterns:
+
+       • Listings with high availability tend to have lower prices and more reviews, likely due to better guest experience.
+   
+5. Host Behavior:
+
+        • Some hosts manage multiple listings, indicating a trend toward professional hosting.
+   
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Conclusion
+
+This project offers valuable insights into the New York Airbnb market, helping both guests and hosts make informed decisions. By using EDA techniques, we identified key trends and developed actionable recommendations. Future improvements can involve advanced analytics and predictive modeling to further enhance the findings.
